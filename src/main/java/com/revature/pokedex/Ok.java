@@ -3,17 +3,17 @@ package com.revature.pokedex;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
-public class App {
+public class Ok {
     public static void main(String[] args) {
-        DexRepository dexRepository = new DexRepository("pokedex.csv");
-        DexService dexService = new DexService(dexRepository);
+        Test test = new Test("https://pokeapi.co/api/v2/pokemon?limit=151");
+        testServ serv = new testServ(test);
         SearchFormService sf = new SearchFormService();
 
         Tomcat server = new Tomcat();
         server.setBaseDir(System.getProperty("java.io.tmpdir"));
         server.getConnector();
         server.addContext("", null);
-        server.addServlet("", "dexServlet", dexService).addMapping("/pokemon");
+        server.addServlet("", "testServer", serv).addMapping("/pokemon");
         server.addServlet("", "searchFormServlet", sf).addMapping("/search");
         try {
             server.start();
