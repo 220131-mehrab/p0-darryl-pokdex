@@ -12,8 +12,19 @@ import java.io.InputStream;
 public class DefaultServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fileName = req.getPathInfo();
+        String fileName = req.getPathInfo().replaceFirst("/", "");
+        if (fileName.equals(""))
+            fileName = "index.html";
+
         InputStream file = getClass().getClassLoader().getResourceAsStream(fileName);
+        if (file == null) {
+            resp.setStatus(404);
+            resp.getWriter().println("File Not Found");
+            return;
+        }
+
+        String mimeType = getServletContext().getMimeType(fileName);
+        resp.setContentType(mimeType);
         IOUtils.copy(file, resp.getOutputStream());
     }
 }
