@@ -22,12 +22,17 @@ public class DexServlet extends HttpServlet {
         resp.getWriter().println(service.searchForm());
 
         List<Pokemon> results = new ArrayList<>();
+        List<Pokemon> page = new ArrayList<>();
         if (userInput != null) {
-            results.add(service.getPokemon(userInput));
-        } else {
+            page.add(service.getPokemon(userInput));
+            for (Pokemon L : page){
+                resp.getWriter().println(L.more() + "<br/>");
+        } }else {
             results.addAll(service.getPokemon());
+            for (Pokemon p : results)
+                resp.getWriter().println(p.toString());
         }
-        for (Pokemon p : results)
-            resp.getWriter().println(p + "<br/>");
+        //for (Pokemon p : results)
+            //resp.getWriter().println(p + "<br/>");
     }
 }

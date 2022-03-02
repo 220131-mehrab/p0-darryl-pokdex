@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: com.revature.pokedex.App
+Class-Path: junit-jupiter-api-5.8.1.jar junit-platform-commons-1.8.1.jar
+  junit-platform-engine-1.8.1.jar h2-2.1.210.jar tomcat-embed-core-10.1.
+ 0-M10.jar jackson-databind-2.13.1.jar apiguardian-api-1.1.2.jar junit-j
+ upiter-engine-5.8.1.jar jackson-annotations-2.13.1.jar tomcat-annotatio
+ ns-api-10.1.0-M10.jar opentest4j-1.2.0.jar jackson-core-2.13.1.jar
+

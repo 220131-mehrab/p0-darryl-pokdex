@@ -172,30 +172,65 @@ import java.util.*;
 
     public String display() {
          return "<!DOCTYPE html>"+
-"<html lang=\"en\">"+
-"<head>"+
-    "<!-- Required meta tags -->"+
-    "<meta charset=\"utf-8\">"+
-    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"+
+                "<html lang=\"en\">"+
+                "<head>" +
+                        "<!-- Required meta tags -->" +
+                                "<meta charset=\"utf-8\">" +
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
+                "<!-- Bootstrap CSS -->" +
+                        "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">"+
+        "<!-- Bootstrap Bundle with Popper -->" +
+                "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>"+
+        "<title>Pokemon You Searched</title>" +
+                 "<div class=\"col\">"+
+                 "<div class=\"row-sm-"+ id/4 + "\">"+
+                 "<div class=\"col-sm-" + id/4 + "\">"+
+                 "<div class=\"card-body\">"+
+                 "<div class=\"card text-center\" style=\"width: 18rem;\">"+
+                "</head>" +
+                        "<body>"+
+                 "<h5 class=\"card-header\">"+name+"</h5>"+
+                 "<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/"+ id + ".png\" class=\"card-img-top\" alt=\"pokemon\">"+
+                 "<h5 class=\"card-title\" id=\"species\">"+species+"</h5>"+
+        "<p class=\"card-text\">"+"No. "+id+"</p>"+
+                 "<a href=\"pokemon?searchName="+name + "\"class=\"btn btn-primary\">View More</a>"+
+                 "</div>"+
+                 "</div>"+
+                 "</body>"+
+                 "</html>";
+    }
 
-    "<!-- Bootstrap CSS -->"+
-"<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">"
-+ "<!-- Bootstrap Bundle with Popper --> "
-            + "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>" +
-    "<title>Pokemon You Searched</title>"+
-"</head>"+
-"<body>"+
-
-"<div class=\"card\" style=\"width: 18rem;\">"+
-    "<img src= \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/" + id + ".png\" class=\"card-img-top\" alt=\"pokemon\">" +
-    "<div class=\"card-body\">"+
-        "<h5 class=\"card-title\" id=\"name\">" + name + "</h5>"+
-        "<p class=\"card-text\">" + id + "\n" + type1 + "\n" + type2 + "</p>"+
-        "<a href=\"pokemon\" class=\"btn btn-primary\">View Pokemon</a>"+
-    "</div>"+
-"</div>"+
-"</body>"+
-"</html>";
-
+     public String more() {
+         return "<!DOCTYPE html>"+
+                 "<html lang=\"en\">"+
+                 "<head>" +
+                 "<!-- Required meta tags -->" +
+                 "<meta charset=\"utf-8\">" +
+                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
+                 "<!-- Bootstrap CSS -->" +
+                 "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">"+
+                 "<!-- Bootstrap Bundle with Popper -->" +
+                 "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>"+
+                 "<title>Pokemon You Searched</title>" +
+                 //"<div class=\"card text-center\"></div>"+ this will make results full screen: pic is too large. Replace line below + width setting on color
+                 "<div class=\"card text-center\" style=\"width: 18rem;\">"+
+                 "<div class=\"card text-white bg-danger mb-3\" style=\"max-width: 18rem;\">"+ //color
+                 "</head>" +
+                 "<body>"+
+                 "<h5 class=\"card-header\">"+name+"</h5>"+
+                 "<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/"+ id + ".png\" class=\"card-img-top\" alt=\"pokemon\">"+
+                 "<div class=\"card-body\">"+
+                 "<h5 class=\"card-title\" id=\"species\">"+species+"</h5>"+
+                 "<p class=\"card-text\">"+"No. "+id+"</p>"+
+                 "<p class=\"card-text\">"+type1+"</p>"+
+                 "<p class=\"card-text\">"+type2+"</p>"+
+                 "<p class=\"card-text\">"+"speed:"+spd+"</p>"+
+                 "<p class=\"card-text\">"+"attack:"+atk+"</p>"+
+                 "<p class=\"card-text\">"+"def:"+def+"</p>"+
+                 "<a href=\"pokemon\" class=\"btn btn-primary\">View Pokemon</a>"+
+                 "</div>"+
+                 "</div>"+
+                 "</body>"+
+                 "</html>";
      }
 }

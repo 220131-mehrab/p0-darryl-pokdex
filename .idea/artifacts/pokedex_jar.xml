@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact name="pokedex.jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pokedex_jar</output-path>
+    <root id="root">
+      <element id="archive" name="pokedex.jar">
+        <element id="module-test-output" name="pokedex.test" />
+        <element id="module-output" name="pokedex.main" />
+      </element>
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.1" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-commons:1.8.1" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-engine:1.8.1" />
+      <element id="library" level="project" name="Gradle: com.h2database:h2:2.1.210" />
+      <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:10.1.0-M10" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.13.1" />
+      <element id="library" level="project" name="Gradle: org.apiguardian:apiguardian-api:1.1.2" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.8.1" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.13.1" />
+      <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-annotations-api:10.1.0-M10" />
+      <element id="library" level="project" name="Gradle: org.opentest4j:opentest4j:1.2.0" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.13.1" />
+    </root>
+  </artifact>
+</component>
