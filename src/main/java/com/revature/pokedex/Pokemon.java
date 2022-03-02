@@ -2,35 +2,109 @@ package com.revature.pokedex;
 
 import java.util.*;
 
-public class Pokemon implements Comparable<Pokemon>{
-    private int dexId;
-    private String name;
-    private List<Type> types;
-    private String sprite;
+ public class Pokemon {
+    private int id, hp, atk, def, spAtk, spDef, spd;
+    //private float ht, wt;
+    private String name, species, type1, type2, ht, wt;
 
-    //private List<Ability> abilities;
-    //private Long baseExperience;
-    //private List<Species> forms;
-    private Long height;
-    //private Boolean isDefault;
-    //private List<Move> moves;
-    //private Long order;
-    //private List<Object> pastTypes;
-    //private Species species;
-    //private List<Stat> stats;
-    private Long weight;
-
-    private Pokemon() {
-        this.types = new ArrayList<>();
+    public Pokemon(int id, String name, String type1, String type2, int hp, int atk, int def, int spAtk, int spDef, int spd, String species, String ht, String wt){
+        this.id = id;
+        this.name = name;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.spAtk = spAtk;
+        this.spDef = spDef;
+        this.spd = spd;
+        this.species = species;
+        this.ht = ht;
+        this.wt = wt;
     }
 
-    public static Pokemon of() {
+    public Pokemon() { }
+    // Used when just declaring/initializing a variable.
+
+    public static Pokemon builder(){
         return new Pokemon();
     }
 
+    @Override
+    public String toString() {
+        return "<HTML>\n" +
+                "<body>\n" + "<h1>"+ "<img src = \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/" + id +".png\" alt =pokemon>" + "\n"
+                + id + "\n" + name + "\n" + type1 + "," + type2 + "\n" + hp + "\n" + spd + "\n" + species + "\n"
+                + ht + "\n"  + wt + "\n"  +spAtk + "\n" +spDef+ "</h1>"
+                + "</body>" +
+                "</HTML>";
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public Pokemon id(int id) {
-        this.dexId = id;
+        this.id = id;
         return this;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public Pokemon hp(int hp) {
+        this.hp = hp;
+        return this;
+    }
+
+    public int getAtk() {
+        return atk;
+    }
+
+    public Pokemon atk(int atk) {
+        this.atk = atk;
+        return this;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public Pokemon def(int def) {
+        this.def = def;
+        return this;
+    }
+
+    public int getspAtk() {
+        return spAtk;
+    }
+
+    public Pokemon spAtk(int spAtk) {
+        this.spAtk = spAtk;
+        return this;
+    }
+
+    public int getspDef() {
+        return spDef;
+    }
+
+    public Pokemon spDef(int spDef) {
+        this.spDef = spDef;
+        return this;
+    }
+
+    public int getSpd() {
+        return spd;
+    }
+
+    public Pokemon spd(int spd) {
+        this.spd = spd;
+        return this;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Pokemon name(String name) {
@@ -38,76 +112,49 @@ public class Pokemon implements Comparable<Pokemon>{
         return this;
     }
 
-    public Pokemon sprite(String sprite) {
-        this.sprite = sprite;
+    public String getHeight() {
+        return ht;
+    }
+
+    public Pokemon height(String ht) {
+        this.ht = ht;
         return this;
+    }
+
+    public String getWeight() {
+        return wt;
+    }
+
+    public Pokemon weight(String wt) {
+        this.wt = wt;
+        return this;
+    }
+
+    public String getType1() {
+        return type1;
     }
 
     public Pokemon type1(String type1) {
-        types.add(0, Type.valueOf(type1.toUpperCase()));
+        this.type1 = type1;
         return this;
+    }
+
+    public String getType2() {
+        return type2;
     }
 
     public Pokemon type2(String type2) {
-        try {
-            types.add(1, Type.valueOf(type2.toUpperCase()));
-        } catch (IllegalArgumentException ex) {}
+        this.type2 = type2;
         return this;
     }
 
-    public int getDexId() {
-        return dexId;
+    public String getSpecies() {
+        return species;
     }
 
-    public void setDexId(int dexId) {
-        this.dexId = dexId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSprite() {
-        return sprite;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSprite(String sprite) {
-        this.sprite = sprite + dexId + ".png";
-    }
-
-    public List<Type> getTypes() {
-        return types;
-    }
-
-    public void setTypes(List<Type> types) {
-        this.types = types;
-    }
-
-    @Override
-    public String toString() {
-        return "<HTML>\n" +
-                "<body>\n" + "<h1>"+ "<img src = \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/" + dexId +".png\" alt =pokemon>" + "\n"
-                + dexId + "\n" + name + "\n" + types + "</h1>"
-                + "</body>" +
-                "</HTML>";
-    }
-
-    //URL url = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/" + dexId + ".png");
-   // BufferedImage c = ImageIO.read(url);
-    //ImageIcon image = new ImageIcon(c);
-    //jxImageView1.setImage(image);
-
-    public String display() {
-        String HTMLForm = "<HTML>\n" +
-                "<body>\n" + "<h1>"+ "<img src = sprite alt =pokemon>" + "\n"
-        + dexId + "\n" + name + "\n" + types + "</h1>"
-                + "</body>" +
-                "</HTML>";
-        return HTMLForm;
+    public Pokemon species(String species) {
+        this.species = species;
+        return this;
     }
 
     @Override
@@ -115,17 +162,17 @@ public class Pokemon implements Comparable<Pokemon>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return dexId == pokemon.dexId && name.equals(pokemon.name) && types.equals(pokemon.types);
+        return id == pokemon.id && name.equals(pokemon.name) && type1.equals(pokemon.type1) && type2.equals(pokemon.type2);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dexId, name, types);
+        return Objects.hash(id, name, type1, type2);
     }
 
-    @Override
+    //@Override
     public int compareTo(Pokemon o) {
-        return Integer.compare(this.dexId, o.getDexId());
+        return Integer.compare(this.id, o.getId());
     }
 
 
@@ -240,4 +287,12 @@ public class Pokemon implements Comparable<Pokemon>{
         public String getURL() { return url; }
         public void setURL(String value) { this.url = value; }
     }
+
+     public String display() {
+         return "<HTML>\n" +
+                 "<body>\n" + "<h1>"+ "<img src = \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/" + id +".png\" alt =pokemon>" + "\n"
+                 + id + "\n" + name + "\n" + type1 + type2 + "</h1>"
+                 + "</body>" +
+                 "</HTML>";
+     }
 }

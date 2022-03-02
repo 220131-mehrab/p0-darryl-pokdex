@@ -32,10 +32,19 @@ public class CSVDexRepository implements DexRepository{
         scanner.next();
         while (scanner.hasNext()) {
             String[] pokeColumns = scanner.next().split(",");
-            Pokemon temp = Pokemon.of().name(pokeColumns[2])
+            Pokemon temp = Pokemon.builder().name(pokeColumns[2])
                     .id(Integer.parseInt(pokeColumns[1]))
                     .type1(pokeColumns[3])
-                    .type2(pokeColumns[4]);
+                    .type2(pokeColumns[4])
+                    .hp(Integer.parseInt(pokeColumns[6]))
+                    .atk(Integer.parseInt(pokeColumns[7]))
+                    .def(Integer.parseInt(pokeColumns[8]))
+                    .spAtk(Integer.parseInt(pokeColumns[9]))
+                    .spDef(Integer.parseInt(pokeColumns[10]))
+                    .spd(Integer.parseInt(pokeColumns[11]))
+                    .species(pokeColumns[12])
+                    .height(pokeColumns[13])
+                    .weight(pokeColumns[14]);
 
             this.pocketMonsters.add(temp);
         }
