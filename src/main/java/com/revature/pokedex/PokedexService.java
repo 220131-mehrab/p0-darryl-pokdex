@@ -3,29 +3,27 @@ package com.revature.pokedex;
 import java.util.List;
 
 public class PokedexService {
-    private DexRepository dexRepository;
+    private final DexRepository dexRepository;
 
     public PokedexService(DexRepository dexRepository) {
         this.dexRepository = dexRepository;
     }
 
     public String searchForm() {
-        String HTMLForm = "<Html>\n" +
-                "<Head>\n" +
-                "    <Title>Search Pokedex" +
-                "</Title>\n" +
-                "</Head>\n" +
-                "<Body>\n" +
-                "    <h1>Pokedex Search</h1>\n" +
-                "    <form action='pokemon' method='get'>\n" +
-                "        <input type='name' name='searchName'/>\n" +
-                "        <input type='submit' value='Search'/>\n" +
-                "    " +
-                "    <a href='pokemon'>See Full Pokedex</a>\n" +
-                "</form>\n" +
-                "</Body>\n" +
-                "</Html>";
-        return HTMLForm;
+        return """
+                <Html>
+                <Head>
+                    <Title>Search Pokedex</Title>
+                </Head>
+                <Body>
+                    <h1>Pokedex Search</h1>
+                    <form action='pokemon' method='get'>
+                        <input type='name' name='searchName'/>
+                        <input type='submit' value='Search'/>
+                        <a href='pokemon'>See Full Pokedex</a>
+                </form>
+                </Body>
+                </Html>""";
     }
 
     public List<Pokemon> getPokemon() {
